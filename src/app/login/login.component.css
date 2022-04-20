@@ -1,0 +1,10 @@
+.example-card {
+  max-width: 400px;
+  border-radius: 10%;
+  margin: 0 auto;
+  background: linear-gradient(to right, #ffb75e, #ed8f03);
+}
+
+.center {
+  text-align: center;
+}
