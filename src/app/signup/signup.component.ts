@@ -24,13 +24,13 @@ export class SignupComponent implements OnInit {
 
   signup(){
 
-    let finaldata = {
-      'fname': this.fname.value,
-      'lname': this.lname.value,
-      'email': this.email.value,
-      'password': this.password.value
-    }
-    console.log(finaldata);
+    // let finaldata = {
+    //   'fname': this.fname.value,
+    //   'lname': this.lname.value,
+    //   'email': this.email.value,
+    //   'password': this.password.value
+    // }
+    // console.log(finaldata);
 
   }
 }

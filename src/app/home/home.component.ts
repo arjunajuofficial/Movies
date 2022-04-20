@@ -11,12 +11,24 @@ export class HomeComponent implements OnInit {
   movie_name = new FormControl('');
   movie_year = new FormControl('');
   Title = "";
+  Year = "";
+  Rated = "";
+  Released = "";
+  Runtime = "";
+  Genre = "";
+  Director = "";
+  Writer = "";
+  Actors = "";  
+  Plot = "";
+  Language = "";
+  Country = "";
+  Awards = "";
+  Poster = "";
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
   }
   search(){
-    //https://www.omdbapi.com/?t=john+wick&y=&apikey=dc12527f
     let mname=this.movie_name.value;
     let myear=this.movie_year.value;
     mname = mname.split(' ').join('+');
@@ -25,7 +37,20 @@ export class HomeComponent implements OnInit {
     this.http.get<any>(link).subscribe(data => {
       //this.totalAngularPackages = data.total;
       this.Title = data.Title;
-      console.log(data.Title);
+      this.Year = data.Year;
+      this.Rated = data.Rated;
+      this.Released = data.Released;
+      this.Runtime = data.Runtime;
+      this.Genre = data.Genre;
+      this.Director = data.Director;
+      this.Writer = data.Writer;
+      this.Actors = data.Actors;
+      this.Plot = data.Plot;
+      this.Language = data.Language;
+      this.Country = data.Country;
+      this.Awards = data.Awards;
+      this.Poster = data.Poster
+      console.log(data.Poster);
   })   
   }
 }
