@@ -47,13 +47,37 @@
         <p>Awards : {{ Awards }}</p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-raised-button color="primary">Add To List</button>
+        <button mat-raised-button color="primary" (click)="add2list()">Add To List</button>
       </mat-card-actions>
     </mat-card>
   </div>
-  <div class="side">
+  <div class="side" *ngIf="show">
     <div class="scroll">
       <h1>My List</h1>
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Movie Name</th>
+              <th scope="col">Year</th>
+              <th scope="col">Duration</th>
+              <th scope="col">Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <th>{{m_name}}</th>
+              <td>{{m_year}}</td>
+              <td>{{m_duration}}</td>
+              <td>{{m_rating}}</td>
+              
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    
     </div>
   </div>
 </div>

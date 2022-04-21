@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   public show:boolean = false;
+  watchlist: any;
   movie_name = new FormControl('');
   movie_year = new FormControl('');
   Title = "";
@@ -27,6 +28,11 @@ export class HomeComponent implements OnInit {
   Country = "";
   Awards = "";
   Poster = "";
+
+  m_name = "";
+  m_year = "";
+  m_duration = "";
+  m_rating = "";
   constructor(private http: HttpClient,private loginService:LoginService,private router: Router) { }
 
   ngOnInit(): void {
@@ -62,10 +68,19 @@ export class HomeComponent implements OnInit {
       this.Awards = data.Awards;
       this.Poster = data.Poster
 
+      this.watchlist = data;
       this.show = true;
       this.movie_name.reset();
       this.movie_year.reset();
       
   })   
+  }
+
+  add2list(){
+   this.m_name =  this.Title;
+   this.m_year = this.Year;
+   this.m_duration =  this.Runtime;
+   this.m_rating = this.Rated;
+
   }
 }
