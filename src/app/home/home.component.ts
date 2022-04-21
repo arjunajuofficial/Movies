@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { LoginService } from '../login.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -9,7 +11,6 @@ import { HttpClient } from '@angular/common/http';
 export class HomeComponent implements OnInit {
 
   public show:boolean = false;
-  public buttonName:any = 'Search';
   movie_name = new FormControl('');
   movie_year = new FormControl('');
   Title = "";
@@ -26,16 +27,18 @@ export class HomeComponent implements OnInit {
   Country = "";
   Awards = "";
   Poster = "";
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private loginService:LoginService,private router: Router) { }
 
   ngOnInit(): void {
+    if(this.loginService.login_status == true){
+      this.router.navigate(['home']);
+    }
+    else{
+      this.router.navigate([''])
+    }
   }
   search(){
-    this.show = !this.show;
-    if(this.show)  
-      this.buttonName = "Clear";
-    else
-      this.buttonName = "Search";
+
 
     let mname=this.movie_name.value;
     let myear=this.movie_year.value;
@@ -58,6 +61,10 @@ export class HomeComponent implements OnInit {
       this.Country = data.Country;
       this.Awards = data.Awards;
       this.Poster = data.Poster
+
+      this.show = true;
+      this.movie_name.reset();
+      this.movie_year.reset();
       
   })   
   }
