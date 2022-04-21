@@ -8,6 +8,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
 
+  public show:boolean = false;
+  public buttonName:any = 'Search';
   movie_name = new FormControl('');
   movie_year = new FormControl('');
   Title = "";
@@ -29,11 +31,17 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
   search(){
+    this.show = !this.show;
+    if(this.show)  
+      this.buttonName = "Clear";
+    else
+      this.buttonName = "Search";
+
     let mname=this.movie_name.value;
     let myear=this.movie_year.value;
     mname = mname.split(' ').join('+');
     let link = 'https://www.omdbapi.com/?t='+mname+'&y='+myear+'&apikey=dc12527f'
-    //console.log(link);
+    
     this.http.get<any>(link).subscribe(data => {
       //this.totalAngularPackages = data.total;
       this.Title = data.Title;
@@ -50,7 +58,7 @@ export class HomeComponent implements OnInit {
       this.Country = data.Country;
       this.Awards = data.Awards;
       this.Poster = data.Poster
-      console.log(data.Poster);
+      
   })   
   }
 }

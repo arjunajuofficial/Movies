@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.4.
 
+## Steps to run this file
+First you need node.js. Install node.js from "https://nodejs.org/en/". Then install angular cli. Here I have used angular cli version 13.0.4, so install cli using the command "npm i -g @angular/cli@13.0.4". In the root folder type the command "npm i". This will install the necessary node modules for running the file. Follow Development server to compile the file.
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
