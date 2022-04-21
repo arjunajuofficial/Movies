@@ -19,3 +19,22 @@ span {
 .example-card {
   max-width: 400px;
 }
+
+.side{
+  padding-top: 5%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  margin-right: 2%;
+}
+
+.scroll{ 
+  background: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
+  border-radius: 15%;
+  width: 600px;
+  height: 150px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+  padding: 20px;
+}
